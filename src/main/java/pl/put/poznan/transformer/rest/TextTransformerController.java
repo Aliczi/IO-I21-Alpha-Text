@@ -26,7 +26,7 @@ public class TextTransformerController {
         logger.debug(Arrays.toString(transforms));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new ToUpper();
+        TextTransformer transformer = new Capitalize();
         return new String[]{transformer.transform(text)};
     }
 
