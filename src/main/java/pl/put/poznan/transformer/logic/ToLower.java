@@ -5,6 +5,7 @@ import java.util.Locale;
 
 
 public class ToLower extends TextTransformer {
+    @Override
     public String transform(String text){
         return text.toLowerCase();
     }
