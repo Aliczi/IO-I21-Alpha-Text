@@ -5,13 +5,10 @@ import pl.put.poznan.transformer.logic.TextTransformer;
 public class Capitalize extends TextTransformer {
     @Override
     public String transform(String text){
-        String words[]=text.split("\\s");
-        String newString ="";
-        for(String w: words){
-            String first = w.substring(0,1);      //First Letter
-            String rest = w.substring(1);         //Rest of the letters
-            newString+=first.toUpperCase()+ rest+ " ";
+        String[] str_tab = text.split("\\s");
+        for (int i = 0; i < str_tab.length; ++i) {
+            str_tab[i] = Character.toString(str_tab[i].charAt(0)).toUpperCase() + str_tab[i].substring(1);
         }
-        return newString.trim();
+        return String.join(" ", str_tab);
     }
 }
