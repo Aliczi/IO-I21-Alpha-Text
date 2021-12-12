@@ -4,6 +4,10 @@ import pl.put.poznan.transformer.logic.TextTransformer;
 
 public class Capitalize extends TextTransformer {
     public String transform(String text){
-        return Character.toString(text.charAt(0)).toUpperCase() + text.substring(1);
+        String[] str_tab = text.split(" ");
+        for (int i = 0; i < str_tab.length; ++i) {
+            str_tab[i] = Character.toString(str_tab[i].charAt(0)).toUpperCase() + str_tab[i].substring(1);
+        }
+        return String.join(" ", str_tab);
     }
 }

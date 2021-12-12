@@ -2,11 +2,7 @@ package pl.put.poznan.transformer.rest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
-import pl.put.poznan.transformer.logic.Basic;
-import pl.put.poznan.transformer.logic.TextTransformer;
-import pl.put.poznan.transformer.logic.ToUpper;
-import pl.put.poznan.transformer.logic.ToLower;
-import pl.put.poznan.transformer.logic.Capitalize;
+import pl.put.poznan.transformer.logic.*;
 
 import java.util.Arrays;
 
@@ -26,7 +22,7 @@ public class TextTransformerController {
         logger.debug(Arrays.toString(transforms));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new Capitalize();
+        TextTransformer transformer = new RemoveDuplicates();
         return new String[]{transformer.transform(text)};
     }
 
@@ -39,7 +35,7 @@ public class TextTransformerController {
         logger.debug(Arrays.toString(transforms));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new ToUpper();
+        TextTransformer transformer = new RemoveDuplicates();
         return new String[]{transformer.transform(text)};
     }
 
