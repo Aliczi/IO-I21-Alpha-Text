@@ -3,7 +3,11 @@ package pl.put.poznan.transformer.logic;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class RemoveDuplicates extends TextTransformer {
+public class RemoveDuplicates extends Decorator {
+    public RemoveDuplicates(TextTransformer size) {
+        super(size);
+    }
+
     @Override
     public String transform(String text) {
         ArrayList<String> str_arr = new ArrayList<>(Arrays.asList(text.split(" ")));
@@ -13,6 +17,6 @@ public class RemoveDuplicates extends TextTransformer {
                 --i;
             }
         }
-        return String.join(" ", str_arr);
+        return super.transform(String.join(" ", str_arr));
     }
 }
