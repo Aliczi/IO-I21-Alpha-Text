@@ -5,7 +5,11 @@ import pl.put.poznan.transformer.logic.TextTransformer;
 import pl.put.poznan.transformer.rest.TextTransformerController;
 
 
-public class Capitalize extends TextTransformer {
+public class Capitalize extends Decorator {
+    public Capitalize(TextTransformer size) {
+        super(size);
+    }
+
     @Override
     public String transform(String text){
         String[] str_tab = text.split("\\s");
@@ -14,6 +18,6 @@ public class Capitalize extends TextTransformer {
                 str_tab[i] = Character.toString(str_tab[i].charAt(0)).toUpperCase() + str_tab[i].substring(1);
             }
         }
-        return String.join(" ", str_tab);
+        return super.transform(String.join(" ", str_tab));
     }
 }

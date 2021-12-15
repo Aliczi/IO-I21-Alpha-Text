@@ -22,7 +22,7 @@ public class TextTransformerController {
         logger.debug(Arrays.toString(transforms));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new Inversion(new Capitalize());
+        TextTransformer transformer = new Inversion(new Capitalize(new TextHolder()));
         return new String[]{transformer.transform(text)};
     }
 
@@ -35,7 +35,7 @@ public class TextTransformerController {
         logger.debug(Arrays.toString(transforms));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new Inversion(new Capitalize());
+        TextTransformer transformer = new Inversion(new Capitalize(new TextHolder()));
         return new String[]{transformer.transform(text)};
     }
 
