@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.transformer.logic.*;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 
 @RestController
@@ -33,16 +34,17 @@ public class TextTransformerController {
 
         // log the parameters
         logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
+        //logger.debug(Arrays.toString(transforms));
 
         // perform the transformation, you should run your logic here, below is just a silly example
         TextTransformer transformer = new Inversion(new Capitalize(new TextHolder()));
+        logger.debug(Arrays.toString(transforms));
         return new String[]{transformer.transform(text)};
     }
 
     private TextTransformer matrioshka(String[] transforms) {
         TextTransformer res = new TextHolder();
-        Class<?> class_name = null;
+        Collections.reverse(Arrays.asList(transforms));
 
         for (String elem : transforms) {
             switch(elem) {
