@@ -42,6 +42,12 @@ public class TextTransformerController {
         return new String[]{transformer.transform(text)};
     }
 
+    /**
+     * Creates proper TextTransformer for a given list of transforms
+     * @param transforms array of transformations
+     * @return TextTransformer object to be used on a String
+     * @throws RuntimeException
+     */
     private TextTransformer matrioshka(String[] transforms) {
         TextTransformer res = new TextHolder();
         Collections.reverse(Arrays.asList(transforms));
