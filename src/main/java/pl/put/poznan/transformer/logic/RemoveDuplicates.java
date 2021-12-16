@@ -13,7 +13,7 @@ public class RemoveDuplicates extends Decorator {
     }
 
     /**
-     * Removes duplicates from a given string and passes to the superclass.
+     * Removes duplicates from a given string and passes it to the superclass.
      * @param text string to transform
      * @return string with removed duplicated neighbouring words as an invocation of superclass transform method
      */
