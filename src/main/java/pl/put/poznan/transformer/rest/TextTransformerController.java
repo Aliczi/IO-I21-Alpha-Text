@@ -9,12 +9,11 @@ import java.util.Collections;
 
 
 @RestController
-@RequestMapping("/{text}")
 public class TextTransformerController {
 
     private static final Logger logger = LoggerFactory.getLogger(TextTransformerController.class);
 
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/{text}", method = RequestMethod.GET, produces = "application/json")
     public String[] get(@PathVariable String text,
                               @RequestParam(value="transforms", defaultValue="lower,capitalize") String[] transforms) {
 
@@ -27,18 +26,17 @@ public class TextTransformerController {
         TextTransformer transformer = matrioshka(transforms);
         return new String[]{transformer.transform(text)};
     }
-
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public String[] post(@PathVariable String text,
-                      @RequestBody String[] transforms) {
+    @ResponseBody
+    @RequestMapping(value = "/{transforms}", method = RequestMethod.POST, produces = "application/json")
+    public String[] post(@RequestBody String text,
+                      @PathVariable String[] transforms) {
 
         // log the parameters
         logger.debug(text);
-        //logger.debug(Arrays.toString(transforms));
+        logger.debug(Arrays.toString(transforms));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new Inversion(new Capitalize(new TextHolder()));
-        logger.debug(Arrays.toString(transforms));
+        TextTransformer transformer = matrioshka(transforms);
         return new String[]{transformer.transform(text)};
     }
 
