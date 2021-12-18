@@ -16,7 +16,7 @@ public class TextTransformerController {
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public String[] get(@PathVariable String text,
-                              @RequestParam(value="transforms", defaultValue="lower,capitalize") String[] transforms) {
+                        @RequestParam(value="transforms", defaultValue="lower,capitalize") String[] transforms) {
 
         // log the parameters
         logger.debug(text);
@@ -30,7 +30,7 @@ public class TextTransformerController {
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public String[] post(@PathVariable String text,
-                      @RequestBody String[] transforms) {
+                         @RequestBody String[] transforms) {
 
         // log the parameters
         logger.debug(text);
@@ -68,6 +68,9 @@ public class TextTransformerController {
                     break;
                 case "removeDuplicates":
                     res = new RemoveDuplicates(res);
+                    break;
+                case "Numbers2Text":
+                    res = new Number2Text(res);
                     break;
                 default:
                     throw new RuntimeException();
