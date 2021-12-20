@@ -4,6 +4,10 @@ package pl.put.poznan.transformer.logic;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Concrete decorator class for converting numbers to words in a given string .
+ * @author Alicja Miłoszewska
+ */
 public class Number2Text extends Decorator {
     public Number2Text(TextTransformer size) {
         super(size);
@@ -47,6 +51,11 @@ public class Number2Text extends Decorator {
             "dziewięćset"   // 9
     };
 
+    /**
+     * Check if a passed string can be parsed into double.
+     * @param str string to check.
+     * @return True or False depending on whether the passed string can be parsed into double.
+     */
     public static boolean isDouble(String str) {
         try {
             double v = Double.parseDouble(str);
@@ -56,6 +65,11 @@ public class Number2Text extends Decorator {
         return false;
     }
 
+    /**
+     * Check if a passed string can be parsed into integer.
+     * @param str string to check.
+     * @return True or False depending on whether the passed string can be parsed into integer.
+     */
     public static boolean isInt(String str) {
         try {
             double v = Integer.parseInt(str);
@@ -65,6 +79,12 @@ public class Number2Text extends Decorator {
         return false;
     }
 
+    /**
+     * Check if a passed string can be parsed into integer.
+     * @param n int to be transformed
+     * @param units table of strings
+     * @return string with transformed number
+     */
     public static String convert(final int n, final String[] units) {
         if (n < 20) {
             return units[n];
@@ -85,7 +105,11 @@ public class Number2Text extends Decorator {
         return Integer.toString(n);
     }
 
-
+    /**
+     * Transform numbers to words from a given string and passes it to the superclass.
+     * @param text string to transform
+     * @return string with transformed numbers as an invocation of superclass transform method
+     */
     public String transform(String text) {
         StringBuilder res = new StringBuilder("");
         List<String> words = Arrays.asList(text.trim().split(" "));
