@@ -63,6 +63,11 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <javadocExecutable>
+                        ${java.home}/bin/javadoc
+                    </javadocExecutable>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -77,6 +82,16 @@
         </plugins>
     </build>
 
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.2.0</version>
+            </plugin>
+        </plugins>
+    </reporting>
+
     <repositories>
         <repository>
             <id>spring-releases</id>
@@ -87,6 +102,10 @@
         <pluginRepository>
             <id>spring-releases</id>
             <url>https://repo.spring.io/libs-release</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>maven-plugins</id>
+            <url>https://repo1.maven.org/maven2/</url>
         </pluginRepository>
     </pluginRepositories>
 

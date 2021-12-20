@@ -1,6 +1,9 @@
 package pl.put.poznan.transformer.logic;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.put.poznan.transformer.logic.Decorator;
+import pl.put.poznan.transformer.rest.TextTransformerController;
 
 import java.util.ArrayList;
 
@@ -10,7 +13,10 @@ public class Inversion extends Decorator  {
         super(size);
     }
 
+    private static final Logger logger = LoggerFactory.getLogger(Inversion.class);
+
     public String transform(String text) {
+        logger.debug("Used transform method on: " + text);
         ArrayList<Boolean> tab = new ArrayList<Boolean>();
         for(int i=0; i<text.length(); i++)
         {

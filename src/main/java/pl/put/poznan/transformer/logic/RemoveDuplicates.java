@@ -1,5 +1,8 @@
 package pl.put.poznan.transformer.logic;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -12,6 +15,7 @@ public class RemoveDuplicates extends Decorator {
         super(size);
     }
 
+    private static final Logger logger = LoggerFactory.getLogger(RemoveDuplicates.class);
     /**
      * Removes duplicates from a given string and passes it to the superclass.
      * @param text string to transform
@@ -19,6 +23,7 @@ public class RemoveDuplicates extends Decorator {
      */
     @Override
     public String transform(String text) {
+        logger.debug("Used transform method on: " + text);
         ArrayList<String> str_arr = new ArrayList<>(Arrays.asList(text.split(" ")));
         for (int i = 1; i < str_arr.size(); ++i) {
             if (str_arr.get(i - 1).equals(str_arr.get(i))) {

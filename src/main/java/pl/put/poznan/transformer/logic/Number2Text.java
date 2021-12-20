@@ -1,6 +1,9 @@
 package pl.put.poznan.transformer.logic;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,6 +16,7 @@ public class Number2Text extends Decorator {
         super(size);
     }
 
+    private static final Logger logger = LoggerFactory.getLogger(Number2Text.class);
 
     public static final String[] units = {
             "", "jeden", "dwa", "trzy", "cztery", "pięć", "sześć", "siedem",
@@ -111,6 +115,7 @@ public class Number2Text extends Decorator {
      * @return string with transformed numbers as an invocation of superclass transform method
      */
     public String transform(String text) {
+        logger.debug("Used transform method on: " + text);
         StringBuilder res = new StringBuilder("");
         List<String> words = Arrays.asList(text.trim().split(" "));
 

@@ -13,6 +13,8 @@ public class Capitalize extends Decorator {
         super(size);
     }
 
+    private static final Logger logger = LoggerFactory.getLogger(Capitalize.class);
+
     /**
      * Capitalizes every first letter in a word for a given string and passes it to the superclass.
      * @param text string to transform
@@ -21,6 +23,7 @@ public class Capitalize extends Decorator {
      */
     @Override
     public String transform(String text){
+        logger.debug("Used transform method on: " + text);
         String[] str_tab = text.split("\\s");
         for (int i = 0; i < str_tab.length; ++i) {
             if (str_tab[i].length() > 0) {

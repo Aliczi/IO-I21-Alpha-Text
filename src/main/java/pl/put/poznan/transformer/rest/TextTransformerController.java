@@ -23,7 +23,6 @@ public class TextTransformerController {
         logger.debug(Arrays.toString(transforms));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        // TextTransformer transformer = new Inversion(new Capitalize(new TextHolder()));
         TextTransformer transformer = matrioshka(transforms);
         return new String[]{transformer.transform(text)};
     }
@@ -34,11 +33,10 @@ public class TextTransformerController {
 
         // log the parameters
         logger.debug(text);
-        //logger.debug(Arrays.toString(transforms));
+        logger.debug(Arrays.toString(transforms));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new Inversion(new Capitalize(new TextHolder()));
-        logger.debug(Arrays.toString(transforms));
+        TextTransformer transformer = matrioshka(transforms);
         return new String[]{transformer.transform(text)};
     }
 
