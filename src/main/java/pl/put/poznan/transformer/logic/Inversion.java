@@ -7,7 +7,10 @@ import pl.put.poznan.transformer.rest.TextTransformerController;
 
 import java.util.ArrayList;
 
-
+/**
+ * Concrete decorator class for inverting a given string with keeping places of capitalization
+ * @author Michał Łopatka
+ */
 public class Inversion extends Decorator  {
     public Inversion(TextTransformer size){
         super(size);
@@ -15,6 +18,12 @@ public class Inversion extends Decorator  {
 
     private static final Logger logger = LoggerFactory.getLogger(Inversion.class);
 
+    /**
+     * Inverts a given string with keeping places of capitalization and passes it to the superclass.
+     * @param text string to transform
+     * @return Inverted string with places of capitalization kept and passes it to the superclass transform method
+     */
+    @Override
     public String transform(String text) {
         logger.debug("Used transform method on: " + text);
         ArrayList<Boolean> tab = new ArrayList<Boolean>();
