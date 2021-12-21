@@ -54,7 +54,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/aliczi/IO-I21-Alpha-Text</developerConnection>
-      <tag>io-project-architecture-0.1</tag>
+      <tag>v0.1</tag>
     </scm>
 
     <build>
