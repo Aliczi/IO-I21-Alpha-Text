@@ -11,7 +11,7 @@
 
     <groupId>pl.put.poznan</groupId>
     <artifactId>texttransformer</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
 
 	<properties>
         <java.version>11</java.version>
@@ -54,7 +54,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/aliczi/IO-I21-Alpha-Text</developerConnection>
-      <tag>texttransformer-0.1</tag>
+      <tag>v0.1</tag>
     </scm>
 
     <build>
