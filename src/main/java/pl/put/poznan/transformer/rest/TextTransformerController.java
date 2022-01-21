@@ -70,6 +70,12 @@ public class TextTransformerController {
                 case "Numbers2Text":
                     res = new Number2Text(res);
                     break;
+                case "abbreviation2Word":
+                    res = new Abbreviation2Word(res);
+                    break;
+                case "word2Abbreviation":
+                    res = new Word2Abbreviation(res);
+                    break;
                 default:
                     throw new RuntimeException();
             }
