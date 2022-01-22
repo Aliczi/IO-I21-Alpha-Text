@@ -76,6 +76,9 @@ public class TextTransformerController {
                 case "word2Abbreviation":
                     res = new Word2Abbreviation(res);
                     break;
+                case "convert2Latex":
+                    res = new Convert2Latex(res);
+                    break;
                 default:
                     throw new RuntimeException();
             }
