@@ -1,10 +1,6 @@
 package pl.put.poznan.transformer.logic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.put.poznan.transformer.logic.TextTransformer;
-import pl.put.poznan.transformer.rest.TextTransformerController;
-
-import java.util.HashMap;
 
 /**
  * Concrete decorator class for changing abbreviation to full words
@@ -42,6 +38,6 @@ public class Abbreviation2Word extends Decorator {
                 i--;
             }
         }
-        return super.transform(String.join(" ", text));
+        return super.transform(text);
     }
 }

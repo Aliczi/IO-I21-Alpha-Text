@@ -79,6 +79,12 @@ public class TextTransformerController {
                 case "convert2Latex":
                     res = new Convert2Latex(res);
                     break;
+                case "caesarCipher":
+                    res = new CaesarCipher(res);
+                    break;
+                case "caesarDecipher":
+                    res = new CaesarDecipher(res);
+                    break;
                 default:
                     throw new RuntimeException();
             }
