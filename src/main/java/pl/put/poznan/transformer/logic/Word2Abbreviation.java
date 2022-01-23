@@ -33,7 +33,7 @@ public class Word2Abbreviation extends Decorator {
     public String transform(String text){
         logger.debug("Used transform method on: " + text);
         String[] str_tab = text.split("\\s");
-        for(int i=0;i<str_tab.length;i++){
+        for(int i=0;i<words.length;i++){
             if(text.indexOf(words[i])!=-1){
                 str_tab = text.split(words[i]);
                 text = str_tab[0] + abbreviation[i] + str_tab[1];
