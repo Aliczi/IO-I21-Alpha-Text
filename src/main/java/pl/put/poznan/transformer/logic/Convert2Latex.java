@@ -3,6 +3,7 @@ package pl.put.poznan.transformer.logic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -16,7 +17,7 @@ public class Convert2Latex extends Decorator {
     private static final Logger logger = LoggerFactory.getLogger(Convert2Latex.class);
 
     Map<String, String> map = Map.of(
-            "\\", "\\\\", // must be the first elem
+            //"\\", "\\\\", // must be the first elem
             "~", "\\~",
             "$", "\\$",
             "_", "\\_",
@@ -35,6 +36,7 @@ public class Convert2Latex extends Decorator {
     @Override
     public String transform(String text) {
         logger.debug("Used transform method on: " + text);
+        text = text.replace("\\", "\\\\");
         for (Map.Entry<String, String> elem : map.entrySet()) {
             text = text.replace(elem.getKey(), elem.getValue());
         }
