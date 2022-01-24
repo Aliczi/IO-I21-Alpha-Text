@@ -29,24 +29,31 @@ public class Inversion extends Decorator  {
         ArrayList<Boolean> tab = new ArrayList<Boolean>();
         for(int i=0; i<text.length(); i++)
         {
-            if (text.charAt(i) == text.toUpperCase().charAt(i)) {
-                tab.add(true);
+            if((text.charAt(i) <= 90 && text.charAt(i) >= 65) || (text.charAt(i) <= 122 && text.charAt(i) >= 97)){
+                if (text.charAt(i) == text.toUpperCase().charAt(i)) {
+                    tab.add(true);
+                }
+                else{
+                    tab.add(false);
+                }
             }
-            else{
-                tab.add(false);
-            }
+
         }
         StringBuilder res = new StringBuilder("");
-
-        for(int i=0;i<text.length();i++)
+        int j = 0;
+        for(int i=text.length()-1;i>=0;i--)
         {
-            if(tab.get(i) == true){
-                text=text.toUpperCase();
+            if((text.charAt(i) <= 90 && text.charAt(i) >= 65) || (text.charAt(i) <= 122 && text.charAt(i) >= 97))
+            {
+                if(tab.get(j)){
+                    text=text.toUpperCase();
+                }
+                else{
+                    text=text.toLowerCase();
+                }
+                j++;
             }
-            else{
-                text=text.toLowerCase();
-            }
-            res.append(text.charAt(text.length() - 1 - i));
+            res.append(text.charAt(i));
         }
         return super.transform(res.toString());
     }
